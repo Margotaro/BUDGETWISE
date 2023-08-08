@@ -19,7 +19,7 @@ interface RecordDAO {
 
     @Transaction
     @Query("SELECT * FROM BudgetOfRecord WHERE budgetId IN (SELECT budgetId FROM Budget WHERE month = :month AND year = :year)")
-    fun getRecordsForBudget(month: String, year: Int): List<BudgetWithRecords>
+    fun getRecordsForBudget(month: String, year: Int): MutableLiveData<List<BudgetWithRecords>>
 
     @Insert
     fun addRecord(newRecord: Record)
