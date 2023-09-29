@@ -1,14 +1,18 @@
-package com.example.budgetwise.ui
+package com.example.budgetwise.ui.states
 
-import com.example.budgetwise.model.Month
 import com.example.budgetwise.model.SpendingPeriod
-import com.example.budgetwise.model.Year
+import kotlinx.datetime.Month
+
+val spendingPeriodMock : SpendingPeriod = SpendingPeriod(
+    Month.APRIL,
+    2023
+)
 
 val budgetCardUiStateMock : BudgetCardUiState = BudgetCardUiState(
     available = 1200f,
     budget = 2000f,
     spent = 800f,
-    spendingPeriod = SpendingPeriod(Month.APRIL, Year(2023)),
+    spendingPeriod = SpendingPeriod(spendingPeriodMock.month, spendingPeriodMock.year),
     spendingCategories = listOf(
         SpendingCategory(
             spendingType = SpendingType.FOOD,
@@ -31,9 +35,4 @@ val budgetCardUiStateMock : BudgetCardUiState = BudgetCardUiState(
             spent = 40f
         )
     )
-)
-
-val spendingPeriodMock : SpendingPeriod = SpendingPeriod(
-    Month.APRIL,
-    Year(2023)
 )
